@@ -9,6 +9,23 @@ exports.index = async (_req, res) => {
     }
 };
 
+exports.singleUser = async (req, res) => {
+    try {
+        const data = await knex("users").where({
+            id: req.params.id,
+        });
+        if (data.length === 0) {
+            res.status(404).send(
+                `user with id: ${req.params.id} does not exist!`
+            );
+        }
+        res.status(200).json(data[0]);
+    } catch (err) {
+        res.status(400).send(`Error retrieving user with: ${req.params.id}`);
+    }
+};
+
+
 exports.userPosts = async (req, res) => {
     try {
         const data = await knex("produce").where({

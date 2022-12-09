@@ -4,7 +4,11 @@ const usersController = require('../controllers/usersController');
 router.route('/')
     .get(usersController.index)
 
-router.route('/:id/produce').get(usersController.userPosts)
+router.route('/:id')
+    .get(usersController.singleUser)
+
+router.route('/:id/produce')
+    .get(usersController.userPosts)
 
 
 module.exports = router;
