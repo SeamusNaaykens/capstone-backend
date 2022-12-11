@@ -4,14 +4,12 @@ const produceController = require('../controllers/produceController')
 router
     .route('/')
     .get(produceController.index)
-    // .post(produceController.addProduceItem)
+    .post(produceController.addPost)
 
 router
     .route('/:id')
     .get(produceController.singleProducePost)
-    // .patch(produceController.editPost)
+    .patch(produceController.editPost)
     .delete(produceController.deletePost)
-
-    
 
 module.exports = router;

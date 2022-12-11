@@ -7,7 +7,7 @@ exports.up = function (knex) {
             table.string('location').notNullable();
             table.string('profile_statement').notNullable();
             table.string('favourite_produce').notNullable();
-            table.string('credentials').notNullable();
+            table.string('image')
             table.timestamp('account_creation').defaultTo(knex.fn.now());
         })
 }
