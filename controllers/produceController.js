@@ -1,8 +1,12 @@
 const knex = require('knex')(require('../knexfile'));
+const { v4: uuidv } = require("uuid")
+const fs = require("fs");
+const path = require('path');
 
 exports.index = async (_req, res) => {
     try {
-        const data = await knex('produce');
+        const data = await knex('produce')
+        // .join('users', 'users.id', 'produce.user_id');
         res.status(200).json(data);
     } catch (err) {
         res.status(400).send(`Error retrieving posts!: ${err}`);
@@ -40,12 +44,25 @@ exports.deletePost = async (req, res) => {
 
 exports.editPost = async (req, res) => {
     // Validate the request body for required data
-    if (!req.body.produce_name || !req.body.produce_type || !req.body.location || !req.body.quantity || !req.body.harvest_date) {
+    if (!req.body.produce_name || !req.body.produce_type || !req.body.location || !req.body.quantity || !req.body.harvest_date ) {
         return res.status(400).send('Please make sure to provide name, manager, address, phone and email fields in the request');
     }
 
     try {
-        await knex('produce').where({ id: req.params.id }).update(req.body);
+        let imageData = req.files.image.data;
+        let imageName = req.files.image.name;
+
+        let filename = uuidv() + "-" + imageName;
+        let staticFilePath = "./public/images/" + filename;
+        let servedFilePath = '/thumbnail/' + filename ;
+        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        //write file to your static directory
+        fs.writeFileSync(staticFilePath,imageData);
+
+        const editedPost = req.body
+        editedPost.image =servedUrl
+        console.log(editedPost)
+        await knex('produce').where({ id: req.params.id }).update(editedPost);
         res.status(200).send(`Post with id: ${req.params.id} has been updated.`);
     } catch (err) {
         res.status(400).send(`Error updating Post ${req.params.id}: ${err}`);
@@ -53,8 +70,9 @@ exports.editPost = async (req, res) => {
 };
 
 exports.addPost = async (req, res) => {
+
     if (
-        !req.body.produce_name ||!req.body.produce_type || !req.body.location || !req.body.quantity || !req.body.harvest_date|| !req.body.id
+        !req.body.produce_name ||!req.body.produce_type || !req.body.location || !req.body.quantity || !req.body.harvest_date || !req.body.user_id || !req.body.post_date 
     ) {
         return res
             .status(400)
@@ -63,24 +81,26 @@ exports.addPost = async (req, res) => {
             );
     }
     try {
-        const data = await knex("produce").insert(req.body);
+
+        let imageData = req.files.image.data;
+        let imageName = req.files.image.name;
+
+        let filename = uuidv() + "-" + imageName;
+        let staticFilePath = "./public/images/" + filename;
+        let servedFilePath = '/thumbnail/' + filename ;
+        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        //write file to your static directory
+        fs.writeFileSync(staticFilePath,imageData);
+
+        const newPost = req.body
+        newPost.id = uuidv()
+        newPost.image = servedUrl
+        console.log(newPost)
+        const data = await knex("produce").insert(newPost);
         const newPostURL = `/produce/${data[0]}`;
         res.status(201).location(newPostURL).send(newPostURL);
     } catch (error) {
+        console.log(error)
         res.status(400).send(`Error creating Post: ${error}`);
     }
-};
-
-
-exports.getCategories = async (req, res) => {
-    const categories = await knex("produce").distinct("category"); //SELECT DISTINCT category FROM inventories(referenced knexjs.org for .distinct)
-    //return all of the unique values in category column. result is an array of objects w/ only category field
-    const data = categories.map(({ category }) => {
-        //deconstructing category in .map from array of objects and formatted to work w/ the frontend
-        return {
-            label: produce_type,
-            value: produce_type,
-        };
-    });
-    res.send(data);
 };

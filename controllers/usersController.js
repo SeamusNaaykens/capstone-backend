@@ -1,5 +1,10 @@
 const knex = require('knex')(require('../knexfile'));
 const { v4: uuidv } = require("uuid")
+const fs = require("fs");
+const path = require('path');
+
+
+
 
 exports.index = async (_req, res) => {
     try {
@@ -32,11 +37,11 @@ exports.userPosts = async (req, res) => {
         const data = await knex("produce").where({
             user_id: req.params.id,
         });
-        if (data.length === 0) {
-            return res.send(
-                `Posts with id: ${req.params.id} does not exist!`
-            );
-        }
+        // if (data.length === 0) {
+        //     return res.send(
+        //         `Posts with id: ${req.params.id} does not exist!`
+        //     );
+        // }
         res.status(200).json(data);
     } catch (err) {
         res.status(400).send(
@@ -44,9 +49,10 @@ exports.userPosts = async (req, res) => {
         );
     }
 };
+           
 
 exports.addUser = async (req, res) => {
-    const  newId = uuidv()
+    console.log(req.body)
     if (
         !req.body.username ||!req.body.email || !req.body.location || !req.body.profile_statement || !req.body.favourite_produce 
     ) {
@@ -57,7 +63,22 @@ exports.addUser = async (req, res) => {
             );
     }
     try {
-        const data = await knex("users").insert(req.body, newId);
+        let imageData = req.files.profile_pic.data;
+        let imageName = req.files.profile_pic.name;
+    
+        //append a UID to the image name so you don't ever have
+        // a conflict (e.g. if 2 users upload car.png)
+        let filename = uuidv() + "-" + imageName;
+        let staticFilePath = "./public/images/" + filename;
+        let servedFilePath = '/thumbnail/' + filename ;
+        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        //write file to your static directory
+        fs.writeFileSync(staticFilePath,imageData);
+    
+        const newUser = req.body
+        newUser.id = uuidv()
+        newUser.image = servedUrl
+        const data = await knex("users").insert(newUser);
         const newUserURL = `/users/${data[0]}`;
         res.status(201).location(newUserURL).send(newUserURL);
     } catch (error) {
@@ -72,7 +93,19 @@ exports.editUser = async (req, res) => {
     }
 
     try {
-        await knex('users').where({ id: req.params.id }).update(req.body);
+        let imageData = req.files.profile_pic.data;
+        let imageName = req.files.profile_pic.name;
+
+        let filename = uuidv() + "-" + imageName;
+        let staticFilePath = "./public/images/" + filename;
+        let servedFilePath = '/thumbnail/' + filename ;
+        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        //write file to your static directory
+        fs.writeFileSync(staticFilePath,imageData);
+
+        const editedUser = req.body
+        editedUser.image = servedUrl
+        await knex('users').where({ id: req.params.id }).update(editedUser);
         res.status(200).send(`User with id: ${req.params.id} has been updated.`);
     } catch (err) {
         res.status(400).send(`Error updating User ${req.params.id}: ${err}`);

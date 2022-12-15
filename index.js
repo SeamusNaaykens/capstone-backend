@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080;
 const cors = require('cors');
+const fileupload = require('express-fileupload')
 
 dotenv.config();
 app.use(cors());
@@ -11,6 +12,7 @@ const usersRoutes = require('./routes/usersRoutes');
 const produceRoutes = require('./routes/produceRoutes');
 
 app.use(express.json());
+app.use(fileupload());
 
 app.get('/', (req, res) => {
     res.send('Express is running!');
@@ -18,7 +20,6 @@ app.get('/', (req, res) => {
 
 app.use('/users', usersRoutes);
 app.use('/produce', produceRoutes);
-
 app.use("/thumbnail", express.static("./public/images"))
 
 
