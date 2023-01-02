@@ -7,9 +7,9 @@ exports.seed = async function (knex) {
             username: 'Darius Naaykens',
             email: 'dpapn@gmail.com',
             location: ' Calgary SW',
-            profile_statement: 'Growing veggies and sharing them with family and friends is my favourite pass time!',
+            profile_statement: 'I love my brother, veggies and video games in that order',
             favourite_produce: 'Bok Choy',
-            image: 'http://localhost:8080/thumbnail/darius.jpg'    
+            image: 'https://growlocal.herokuapp.com/thumbnail/darius.jpg'    
 
         },
         {
@@ -19,7 +19,7 @@ exports.seed = async function (knex) {
             location: 'Calgary SW',
             profile_statement: 'I love growing my own organic produce, it is so rewarding watching it grow',
             favourite_produce: 'Mangos',
-            image: 'http://localhost:8080/thumbnail/mac-pic.jpg'  
+            image: 'https://growlocal.herokuapp.com/thumbnail/mac-pic.jpg'  
         
 
         },
@@ -27,39 +27,39 @@ exports.seed = async function (knex) {
                 id: '150a36cf-f38e-4f59-8e31-39974207372d',
                 username: "Grayson O'Brien",
                 email: 'realraver@hotmail.com',
-                profile_statement: ' placeholder',
-                favourite_produce: ' placeholder',
-                location: 'Calgary NW',
-                image: 'http://localhost:8080/thumbnail/grayson.PNG'
+                profile_statement: ' I love red things and SENDING',
+                favourite_produce: ' Whatever fruit Essential is',
+                location: 'West Vancouver',
+                image: 'https://growlocal.herokuapp.com/thumbnail/grayson.PNG'
 
             },
             {
                 id: '89898957-04ba-4bd0-9f5c-a7aea7447963',
                 username: 'Pavle Lozo',
                 email: 'drpavle@gmail.com',
-                profile_statement: 'placeholder',
-                favourite_produce: 'placeholder',
+                profile_statement: 'Optometrist and big fruit lover, IDEMO SRBIJO!!!',
+                favourite_produce: 'Carrots cause they are good for your eyes.',
                 location: 'Calgary SE',
-                image:  'http://localhost:8080/thumbnail/pavle.JPG' 
+                image:  'https://growlocal.herokuapp.com/thumbnail/pavle.JPG' 
                 
             },
             {
                 id: 'bfc9bea7-66f1-44e9-879b-4d363a888eb4',
                 username: 'James Wilson',
                 email: 'jwilson@zanyworldwide.com',
-                profile_statement: 'placeholder',
-                favourite_produce: 'placeholder',
+                profile_statement: "There's a snake in my boot!",
+                favourite_produce: 'Papayas, strawberries and mushrooms',
                 location: 'Calgary SW',
-                image:   'http://localhost:8080/thumbnail/James.jpg'
+                image:   'https://growlocal.herokuapp.com/thumbnail/James.jpg'
             },
             {
                 id: '90ac3319-70d1-4a51-b91d-ba6c2464408c',
                 username: 'Jack Evans',
                 email: 'londonisred@yahoo.ca',
-                profile_statement: 'placeholder',
-                favourite_produce: 'placeholder',
+                profile_statement: 'Just a typical English bloke, growing some food at home.',
+                favourite_produce: 'Anything English',
                 location: 'Calgary NE',
-                image: 'http://localhost:8080/thumbnail/jack.jpg'
+                image: 'https://growlocal.herokuapp.com/thumbnail/jack.jpg'
                
 
             },
@@ -67,20 +67,20 @@ exports.seed = async function (knex) {
                 id: '5bf7bd6c-2b16-4129-bddc-9d37ff8539e9',
                 username: 'Nick Taylor',
                 email: 'babynickbeatboxer@gmail.com',
-                profile_statement: 'placeholder',
-                favourite_produce: 'placeholder',
+                profile_statement: 'New to the growing food game!',
+                favourite_produce: ' Peaches, Apples and Onions',
                 location: 'Calgary NW',
-                image: 'http://localhost:8080/thumbnail/nick.jpg'
+                image: 'https://growlocal.herokuapp.com/thumbnail/nick.jpg'
             
             },
             {
                 id: '2922c286-16cd-4d43-ab98-c79f698aeab0',
                 username: 'Stefan Djordjevic',
                 email: 'djstofwell@hotmail.com',
-                profile_statement: 'placeholder',
-                favourite_produce: 'placeholder',
+                profile_statement: ' Hi! My friends call me Stef, and I love growin stuff',
+                favourite_produce: ' Raspberries, Grapes, Tomatoes',
                 location: 'Calgary SE',
-                image: 'http://localhost:8080/thumbnail/stef.jpg'
+                image: 'https://growlocal.herokuapp.com/thumbnail/stef.jpg'
            
 
             },
@@ -88,19 +88,19 @@ exports.seed = async function (knex) {
                 id: '9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3',
                 username: 'Harley Streten',
                 email: 'holdinon@gmail.com',
-                profile_statement: 'placeholder',
-                favourite_produce: 'placeholder',
-                location: 'Calgary NE',
-                image: 'http://localhost:8080/thumbnail/flume-pic.png'  
+                profile_statement: 'When I am not making DOPE beats I am growing food',
+                favourite_produce: 'Starfruit, Acai, Rhubarb',
+                location: 'Byron Bay, Australia',
+                image: 'https://growlocal.herokuapp.com/thumbnail/flume-pic.png'  
             },
             {
                 id: '83433026-ca32-4c6d-bd86-a39ee8b7303e',
                 username: 'Thierry Henry',
                 email: 'vavavoom@me.com',
-                profile_statement: 'placeholder',
-                favourite_produce: 'placeholder',
+                profile_statement: 'I am number 1 on the pitch and in the garden',
+                favourite_produce: 'Kale, Mushrooms, Grapes',
                 location: 'Calgary SW',
-                image: 'http://localhost:8080/thumbnail/henry-pic.jpg'  
+                image: 'https://growlocal.herokuapp.com/thumbnail/henry-pic.jpg'  
             },
 
     ]);

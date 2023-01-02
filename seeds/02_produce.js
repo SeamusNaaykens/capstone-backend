@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
             location:' Calgary SW',
             quantity: '6',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/yukon-gold.jpg',
+            image:'https://growlocal.herokuapp.com/yukon-gold.jpg',
 
         },
         {
@@ -20,7 +20,7 @@ exports.seed = async function (knex) {
             location:'Calgary SW',
             quantity: '2lbs',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/green-beans.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/green-beans.jpg',
 
         },
         {
@@ -31,7 +31,7 @@ exports.seed = async function (knex) {
             location:'Calgary SW',
             quantity: '15',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/figs.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/figs.jpg',
 
         },
         {
@@ -42,7 +42,7 @@ exports.seed = async function (knex) {
             location:'Calgary SW',
             quantity: '4lbs' ,
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/raspberries.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/raspberries.jpg',
 
         },
         {
@@ -53,7 +53,7 @@ exports.seed = async function (knex) {
             location:'Calgary SW',
             quantity: '3lbs',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/bok-choy.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/bok-choy.jpg',
 
         },
         {
@@ -64,7 +64,7 @@ exports.seed = async function (knex) {
             location:'Calgary SW',
             quantity: '5',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/sweet-potatoes-yams.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/sweet-potatoes-yams.jpg',
 
         },
         {
@@ -75,7 +75,7 @@ exports.seed = async function (knex) {
             location:'Calgary NW',
             quantity: '24',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/Gala-apples.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/Gala-apples.jpg',
 
         },
         {
@@ -86,7 +86,7 @@ exports.seed = async function (knex) {
             location:'Calgary NW',
             quantity: '3lbs',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/oyster-mushrooms.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/oyster-mushrooms.jpg',
 
         },
         {
@@ -97,7 +97,7 @@ exports.seed = async function (knex) {
             location:'Calgary NW',
             quantity: '37 leaves',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/basil.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/basil.jpg',
 
         },
         {
@@ -108,7 +108,7 @@ exports.seed = async function (knex) {
             location:'Calgary SE',
             quantity: '32',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/ghost-peppers.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/ghost-peppers.jpg',
 
         },
         {
@@ -119,7 +119,7 @@ exports.seed = async function (knex) {
             location:' Calgary SW',
             quantity: '3lbs',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/red-onion.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/red-onion.jpg',
 
         },
         {
@@ -130,7 +130,7 @@ exports.seed = async function (knex) {
             location:'Calgary NE',
             quantity: '4lbs',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/carrot.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/carrot.jpg',
 
         },
         {
@@ -141,7 +141,7 @@ exports.seed = async function (knex) {
             location:' Calgary NE',
             quantity: '34',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/snap-peas.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/snap-peas.jpg',
 
         },
         {
@@ -152,7 +152,7 @@ exports.seed = async function (knex) {
             location:'Calgary NW',
             quantity: '8',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/english-cucumber.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/english-cucumber.jpg',
 
         },
         {
@@ -163,7 +163,7 @@ exports.seed = async function (knex) {
             location:' Calgary NW',
             quantity: '43',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/Cherry-Tomatoes.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/Cherry-Tomatoes.jpg',
 
         },
         {
@@ -174,7 +174,7 @@ exports.seed = async function (knex) {
             location:'Calgary SE',
             quantity: '24 leaves',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/mint.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/mint.jpg',
 
         },
         {
@@ -185,7 +185,7 @@ exports.seed = async function (knex) {
             location:' Calgary SE',
             quantity: '18 sprigs',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/Rosemary.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/Rosemary.jpg',
 
         },
         {
@@ -196,7 +196,7 @@ exports.seed = async function (knex) {
             location:' Calgary NE',
             quantity: '25 stalks',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/Rhubarb-Taste.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/Rhubarb-Taste.jpg',
 
         },
         {
@@ -207,7 +207,7 @@ exports.seed = async function (knex) {
             location:'Calgary NE',
             quantity: '16 stalks',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/kale.png',
+            image:'https://growlocal.herokuapp.com/thumbnail/kale.png',
 
         },
         {
@@ -218,7 +218,7 @@ exports.seed = async function (knex) {
             location:'Calgary SW',
             quantity: '4 heads',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/butter-lettuce.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/butter-lettuce.jpg',
 
         },
         {
@@ -229,7 +229,7 @@ exports.seed = async function (knex) {
             location:'Calgary SW',
             quantity: '102',
             harvest_date: '2022-12-05 17:21:54',
-            image:'http://localhost:8080/thumbnail/Crab-Apples.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/Crab-Apples.jpg',
 
         },
         
