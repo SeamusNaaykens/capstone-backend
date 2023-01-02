@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
             location:' Calgary SW',
             quantity: '6',
             harvest_date: '2022-12-05 17:21:54',
-            image:'https://growlocal.herokuapp.com/yukon-gold.jpg',
+            image:'https://growlocal.herokuapp.com/thumbnail/yukon-gold.jpg',
 
         },
         {
