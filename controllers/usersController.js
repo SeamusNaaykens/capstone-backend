@@ -73,9 +73,24 @@ exports.addUser = async (req, res) => {
         let servedUrl = 'https://growlocal.herokuapp.com'+ servedFilePath        
         //write file to your static directory
         fs.writeFileSync(staticFilePath,imageData);
+
+        const date = new Date();
+        const postedDate =
+            date.getFullYear() +
+            "-" +
+            date.getMonth() +
+            "-" +
+            date.getDate() +
+            " " +
+            date.getHours().toString() +
+            ":" +
+            date.getMinutes().toString() +
+            ":" +
+            date.getSeconds().toString();
     
         const newUser = req.body
         newUser.id = uuidv()
+        newUser.account_creation = postedDate
         newUser.image = servedUrl
         const data = await knex("users").insert(newUser);
         const newUserURL = `/users/${data[0]}`;

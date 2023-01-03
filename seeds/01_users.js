@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
             location: ' Calgary SW',
             profile_statement: 'I love my brother, veggies and video games in that order',
             favourite_produce: 'Bok Choy',
-            image: 'https://growlocal.herokuapp.com/thumbnail/darius.jpg'    
+            image: 'https://growlocal.herokuapp.com/thumbnail/darius.JPG'    
 
         },
         {
