@@ -74,23 +74,23 @@ exports.addUser = async (req, res) => {
         //write file to your static directory
         fs.writeFileSync(staticFilePath,imageData);
 
-        const date = new Date();
-        const postedDate =
-            date.getFullYear() +
-            "-" +
-            date.getMonth() +
-            "-" +
-            date.getDate() +
-            " " +
-            date.getHours().toString() +
-            ":" +
-            date.getMinutes().toString() +
-            ":" +
-            date.getSeconds().toString();
+        // const date = new Date();
+        // const postedDate =
+        //     date.getFullYear() +
+        //     "-" +
+        //     date.getMonth() +
+        //     "-" +
+        //     date.getDate() +
+        //     " " +
+        //     date.getHours().toString() +
+        //     ":" +
+        //     date.getMinutes().toString() +
+        //     ":" +
+        //     date.getSeconds().toString();
     
         const newUser = req.body
         newUser.id = uuidv()
-        newUser.account_creation = postedDate
+        newUser.account_creation = '2023-01-03 17:21:54'
         newUser.image = servedUrl
         const data = await knex("users").insert(newUser);
         const newUserURL = `/users/${data[0]}`;
