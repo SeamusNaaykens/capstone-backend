@@ -72,7 +72,7 @@ exports.editPost = async (req, res) => {
 exports.addPost = async (req, res) => {
 
     if (
-        !req.body.produce_name ||!req.body.produce_type || !req.body.location || !req.body.quantity || !req.body.harvest_date || !req.body.user_id || !req.body.post_date 
+        !req.body.produce_name ||!req.body.produce_type || !req.body.location || !req.body.quantity || !req.body.harvest_date || !req.body.user_id 
     ) {
         return res
             .status(400)
