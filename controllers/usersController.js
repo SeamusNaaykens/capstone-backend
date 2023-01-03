@@ -5,7 +5,6 @@ const path = require('path');
 
 
 
-
 exports.index = async (_req, res) => {
     try {
         const data = await knex("users");
@@ -71,7 +70,7 @@ exports.addUser = async (req, res) => {
         let filename = uuidv() + "-" + imageName;
         let staticFilePath = "./public/images/" + filename;
         let servedFilePath = '/thumbnail/' + filename ;
-        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        let servedUrl = 'https://growlocal.herokuapp.com'+ servedFilePath        
         //write file to your static directory
         fs.writeFileSync(staticFilePath,imageData);
     
@@ -99,7 +98,7 @@ exports.editUser = async (req, res) => {
         let filename = uuidv() + "-" + imageName;
         let staticFilePath = "./public/images/" + filename;
         let servedFilePath = '/thumbnail/' + filename ;
-        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        let servedUrl = 'https://growlocal.herokuapp.com'+ servedFilePath        
         //write file to your static directory
         fs.writeFileSync(staticFilePath,imageData);
 

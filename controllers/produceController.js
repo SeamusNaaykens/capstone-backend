@@ -55,7 +55,7 @@ exports.editPost = async (req, res) => {
         let filename = uuidv() + "-" + imageName;
         let staticFilePath = "./public/images/" + filename;
         let servedFilePath = '/thumbnail/' + filename ;
-        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        let servedUrl = 'https://growlocal.herokuapp.com'+ servedFilePath        
         //write file to your static directory
         fs.writeFileSync(staticFilePath,imageData);
 
@@ -88,7 +88,7 @@ exports.addPost = async (req, res) => {
         let filename = uuidv() + "-" + imageName;
         let staticFilePath = "./public/images/" + filename;
         let servedFilePath = '/thumbnail/' + filename ;
-        let servedUrl = 'http://localhost:8080'+ servedFilePath        
+        let servedUrl = 'https://growlocal.herokuapp.com'+ servedFilePath        
         //write file to your static directory
         fs.writeFileSync(staticFilePath,imageData);
 
