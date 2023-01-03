@@ -94,7 +94,7 @@ exports.addPost = async (req, res) => {
 
         const newPost = req.body
         newPost.id = uuidv()
-        newPost.account_creation = '2023-01-03 17:21:54'
+        newPost.post_date = '2023-01-03 17:21:54'
         newPost.image = servedUrl
         console.log(newPost)
         const data = await knex("produce").insert(newPost);
