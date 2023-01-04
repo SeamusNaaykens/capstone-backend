@@ -2,9 +2,8 @@ const knex = require('knex')(require('../knexfile'));
 const { v4: uuidv } = require("uuid")
 const fs = require("fs");
 const path = require('path');
-
-
-
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 exports.index = async (_req, res) => {
     try {

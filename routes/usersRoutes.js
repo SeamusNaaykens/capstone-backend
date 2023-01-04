@@ -13,6 +13,10 @@ router.route('/:id')
 router.route('/:id/produce')
     .get(usersController.userPosts)
 
+router.route('/login')
+    .post(usersController.loginUser)
 
+router.route('/current')
+    .get(usersController.currentUser)
 
 module.exports = router;
