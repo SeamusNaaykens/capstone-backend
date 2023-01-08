@@ -16,7 +16,7 @@ router.route('/:id/produce')
 router.route('/login')
     .post(usersController.loginUser)
 
-router.route('/current')
+router.route('/current/loggedin')
     .get(usersController.currentUser)
 
 module.exports = router;
