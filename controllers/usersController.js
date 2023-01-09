@@ -36,11 +36,7 @@ exports.userPosts = async (req, res) => {
         const data = await knex("produce").where({
             user_id: req.params.id,
         });
-        // if (data.length === 0) {
-        //     return res.send(
-        //         `Posts with id: ${req.params.id} does not exist!`
-        //     );
-        // }
+    
         res.status(200).json(data);
     } catch (err) {
         res.status(400).send(
@@ -51,7 +47,6 @@ exports.userPosts = async (req, res) => {
            
 
 exports.addUser = async (req, res) => {
-    console.log(req.body)
     if (
         !req.body.username ||!req.body.email || !req.body.location || !req.body.profile_statement || !req.body.favourite_produce 
     ) {
@@ -134,9 +129,6 @@ exports.loginUser = async ( req, res) => {
     try{
         const user = await knex('users').where({ email: email }).first();
         const isPasswordCorrect = bcrypt.compareSync(password, user.password);
-        console.log(user.username)
-        console.log(user.password)
-        console.log(user.email)
 
         if (!isPasswordCorrect) {
             return res.status(400).send("Invalid password");
