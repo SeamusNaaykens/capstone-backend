@@ -9,6 +9,7 @@ exports.up = function (knex) {
             table.string('favourite_produce').notNullable();
             table.string('image')
             table.timestamp('account_creation').defaultTo(knex.fn.now());
+            table.string('password').notNullable();
         })
 }
 

@@ -2,8 +2,8 @@ const knex = require('knex')(require('../knexfile'));
 const { v4: uuidv } = require("uuid")
 const fs = require("fs");
 const path = require('path');
-
-
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 exports.index = async (_req, res) => {
     try {
@@ -36,11 +36,7 @@ exports.userPosts = async (req, res) => {
         const data = await knex("produce").where({
             user_id: req.params.id,
         });
-        // if (data.length === 0) {
-        //     return res.send(
-        //         `Posts with id: ${req.params.id} does not exist!`
-        //     );
-        // }
+    
         res.status(200).json(data);
     } catch (err) {
         res.status(400).send(
@@ -51,14 +47,13 @@ exports.userPosts = async (req, res) => {
            
 
 exports.addUser = async (req, res) => {
-    console.log(req.body)
     if (
         !req.body.username ||!req.body.email || !req.body.location || !req.body.profile_statement || !req.body.favourite_produce 
     ) {
         return res
             .status(400)
             .send(
-                "Please make sure you provided all the required fields(name, email, location, about you, favourite produce)"
+                "Please make sure you provided all the required fields(name, email, location, about you, favourite produce, password)"
             );
     }
     try {
@@ -88,9 +83,13 @@ exports.addUser = async (req, res) => {
         //     ":" +
         //     date.getSeconds().toString();
     
+        
+        const hashedPassword = bcrypt.hashSync(req.body.password);
+    
         const newUser = req.body
         newUser.id = uuidv()
         newUser.account_creation = '2023-01-03 17:21:54'
+        newUser.password = hashedPassword
         newUser.image = servedUrl
         const data = await knex("users").insert(newUser);
         const newUserURL = `/users/${data[0]}`;
@@ -134,4 +133,54 @@ exports.deleteUser = async (req, res) => {
         res.status(400).send(`Error deleting User ${req.params.id} ${err}`);
     }
 };
+
+exports.loginUser = async ( req, res) => {
+    const { username, email, password } = req.body
+    if(!username || !email ||!password){
+        return res
+            .status(400)
+            .send(
+                "Please make sure you provided all the required fields(username, email and password)"
+            );
+    }
+    try{
+        const user = await knex('users').where({ email: email }).first();
+        const isPasswordCorrect = bcrypt.compareSync(password, user.password);
+
+        if (!isPasswordCorrect) {
+            return res.status(400).send("Invalid password");
+        }
+
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.JWT_KEY,
+            { expiresIn: "24h" }
+        );
+    
+        res.json({ token })
+
+    } catch (err) {
+        res.status(400).send(`Error logging in User ${username} ${err}`);
+    }
+};
+
+exports.currentUser = async (req, res ) => {
+    if (!req.headers.authorization) {
+        return res.status(401).send("Please login");
+    }
+
+    const authHeader = req.headers.authorization;
+    const authToken = authHeader.split(' ')[1];
+
+    try {
+        const decoded = jwt.verify(authToken, process.env.JWT_KEY);
+
+        // Respond with the appropriate user data
+        const user = await knex('users').where({ id: decoded.id }).first();
+        delete user.password;
+        res.json(user);
+    } catch (error) {
+        return res.status(401).send("Invalid auth token");
+    }
+}
 
