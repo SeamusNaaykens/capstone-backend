@@ -88,7 +88,7 @@ exports.addUser = async (req, res) => {
     
         const newUser = req.body
         newUser.id = uuidv()
-        newUser.account_creation = '2023-01-03 17:21:54'
+        newUser.account_creation = '2023-01-11 12:00:54'
         newUser.password = hashedPassword
         newUser.image = servedUrl
         const data = await knex("users").insert(newUser);
